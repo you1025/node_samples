@@ -8,6 +8,12 @@ import ItemRoutes from "./routes/itemRoutes.js";
 
 const app = express();
 
+// for cors
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
+
 // ミドルウェア
 app.use(express.json());
 
