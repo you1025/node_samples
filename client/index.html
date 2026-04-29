@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite JS テスト</title>
+  </head>
+  <body>
+    <div id="item"></div>
+    <script type="module" src="./src/item.js"></script>
+
+    <div id="item2"></div>
+    <script type="module">
+      const API_URL = "http://localhost:3000/api/items/1";
+      fetch(API_URL, { cache: "no-store" })
+      .then(res => res.json())
+      .then(data => document.getElementById('item2').innerHTML = `<div><p>${JSON.stringify(data)}</p><p>Hello</p></div>`);
+    </script>
+  </body>
+</html>
