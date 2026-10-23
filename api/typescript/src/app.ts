@@ -5,6 +5,7 @@ import express from "express";
 //import rateLimit from "express-rate-limit";
 //import passport from "passport";
 import ItemRoutes from "./routes/itemRoutes.js";
+import AuthRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -17,6 +18,10 @@ app.use((req, res, next) => {
 // ミドルウェア
 app.use(express.json());
 
+// auth
+app.use("/api/auth", AuthRoutes);
+
+// 商品関連 api
 app.use("/api/items", ItemRoutes);
 
 export default app;
